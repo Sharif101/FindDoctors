@@ -1,0 +1,55 @@
+.container {
+  padding: 0 6em;
+  margin-bottom: 20px;
+}
+.container > p {
+  color: var(--primary);
+  font-size: 1.75em;
+  font-weight: 500;
+  text-align: center;
+  padding: 20px 0;
+}
+.searchDoctor {
+  background-color: var(--white);
+  border: 1px solid #d5d4fbd0;
+  margin: 0 16em;
+  box-shadow: 5px 6px 8px #eaebf0;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px;
+}
+
+.singleSearchbar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 30px;
+}
+.singleSearchbar > input {
+  padding: 7px;
+  border: none;
+}
+.singleSearchbar > input::placeholder {
+  color: var(--gray4);
+  font-size: 14px;
+}
+
+.singleSearchbar > input:focus {
+  outline: none;
+}
+
+.space {
+  width: 1px;
+  margin: 10px 0;
+  background-color: #d5d4fb;
+}
+.iconButton {
+  background-color: var(--primary);
+  padding: 15px 20px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.iconButton > img {
+  width: 20px;
+  height: 20px;
+}
