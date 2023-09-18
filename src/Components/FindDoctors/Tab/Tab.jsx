@@ -18,7 +18,7 @@ export default function Tab() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${apiV1}/admin/doctors/active?speciality=${search}&end_date=023-09-17T23%3A59%3A59&skip=0&limit=8/`,
+          `${apiV1}/admin/doctors/active?speciality=${search}&end_date=23-09-17T23%3A59%3A59&skip=0&limit=8`,
           {
             method: "GET",
             headers: {
