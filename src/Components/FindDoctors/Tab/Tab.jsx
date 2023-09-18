@@ -5,85 +5,54 @@ import specialist from "../../../assets/Tabs/Specialist.svg";
 import venereologist from "../../../assets/Tabs/Venereologist.svg";
 import gynecologist from "../../../assets/Tabs/Gynecologist.svg";
 import psychiatrist from "../../../assets/Tabs/Psychiatrist.svg";
-import { useEffect, useState } from "react";
 
-export default function Tab() {
-  let apiV1 = "https://ec.healthxbd.com/api/v1";
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM2ODEsImV4cCI6MTcyNjM5ODE3NH0.JY0vWoxGBa4imj0-lBY86CRs4M64LHakAhPwp13LqSQ";
-  const [search, setSearch] = useState("medicine");
-  // console.log(search);
-  //  Get
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${apiV1}/admin/doctors/active?speciality=${search}&end_date=23-09-17T23%3A59%3A59&skip=0&limit=8`,
-          {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        const data = await response.json();
-
-        if (response.ok) {
-          console.log("success");
-          console.log(data);
-        }
-      } catch {
-        console.log("Please check your internet connection!");
-      }
-    };
-    fetchData();
-  }, [search]);
-
+export default function Tab({ search, setSearch }) {
   return (
     <div className={classes.container}>
       <div className={classes.alltabs}>
         {/* ---------------------- */}
-        <div className={`${classes.singleTabs} ${classes.clicktab}`}>
+        <div className={search === "" ? classes.clicktab : classes.singleTabs}>
           <img src={group} alt="" />
           <p onClick={() => setSearch("")}>All Doctors</p>
         </div>
         {/* ------------------------------- */}
-        <div className={classes.singleTabs}>
+        <div
+          className={
+            search === "general" ? classes.clicktab : classes.singleTabs
+          }
+        >
           <img src={general} alt="" />
-          <p href="#" onClick={() => setSearch(" General Physician")}>
-            General Physician
-          </p>
+          <p onClick={() => setSearch("general")}>General Physician</p>
         </div>
         {/* ---------------------- */}
-        <div className={classes.singleTabs}>
+        <div
+          className={
+            search === "medicine" ? classes.clicktab : classes.singleTabs
+          }
+        >
           <img src={specialist} alt="" />
-          <p href="#" onClick={(e) => setSearch("Medicine Specialist")}>
-            Medicine Specialist
-          </p>
+          <p onClick={() => setSearch("medicine")}>Medicine Specialist</p>
         </div>
         {/* ------------------------------- */}
-        <div className={classes.singleTabs}>
+        <div
+          className={search === "vd" ? classes.clicktab : classes.singleTabs}
+        >
           <img src={venereologist} alt="" />
-          <p href="#" onClick={(e) => setSearch("Venereologist")}>
-            Venereologist
-          </p>
+          <p onClick={() => setSearch("vd")}>Venereologist</p>
         </div>
         {/* ---------------------- */}
-        <div className={classes.singleTabs}>
+        <div
+          className={search === "gyn" ? classes.clicktab : classes.singleTabs}
+        >
           <img src={gynecologist} alt="" />
-          <p href="#" onClick={(e) => setSearch(" Gynecologist")}>
-            Gynecologist
-          </p>
+          <p onClick={() => setSearch("gyn")}>Gynecologist</p>
         </div>
         {/* ------------------------------- */}
-        <div className={classes.singleTabs}>
+        <div
+          className={search === "psych" ? classes.clicktab : classes.singleTabs}
+        >
           <img src={psychiatrist} alt="" />
-          <p href="#" onClick={(e) => setSearch("Psychiatrist")}>
-            Psychiatrist/Psychologist
-          </p>
+          <p onClick={() => setSearch("psych")}>Psychiatrist/Psychologist</p>
         </div>
       </div>
     </div>

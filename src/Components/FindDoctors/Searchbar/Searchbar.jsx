@@ -2,9 +2,9 @@ import classes from "./Searchbar.module.css";
 import specialty from "../../../assets/Searchbar/Specialty.png";
 import area from "../../../assets/Searchbar/Area.png";
 import name from "../../../assets/Searchbar/Name.png";
-import search from "../../../assets/Searchbar/search.png";
+import searchPic from "../../../assets/Searchbar/search.png";
 
-export default function Searchbar() {
+export default function Searchbar({ search }) {
   return (
     <div className={classes.container}>
       <p>Find The Best Doctors</p>
@@ -28,7 +28,7 @@ export default function Searchbar() {
             <input type="text" placeholder="Search by name" />
           </div>
           <div className={classes.iconButton}>
-            <img src={search} alt="" />
+            <img src={searchPic} alt="" />
           </div>
         </form>
       </div>

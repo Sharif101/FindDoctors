@@ -23,6 +23,9 @@
   cursor: pointer;
 }
 .clicktab {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   background-color: var(--primary);
   color: var(--white);
   padding: 8px 10px;
