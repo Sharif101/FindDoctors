@@ -4,7 +4,7 @@ import area from "../../../assets/Searchbar/Area.png";
 import name from "../../../assets/Searchbar/Name.png";
 import search from "../../../assets/Searchbar/search.png";
 
-export default function Searchbar() {
+export default function Searchbar({ search }) {
   return (
     <div className={classes.container}>
       <p>Find The Best Doctors</p>
